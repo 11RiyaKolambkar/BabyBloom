@@ -5,7 +5,7 @@ import { Product } from './models/productModel.js';
 dotenv.config();
 
 const products = [
-    // Baby Care
+    // 1. Baby Care
     {
         p_name: "Gentle Nourishing Baby Lotion (200ml)",
         desc: "Hypoallergenic and dermatologically tested gentle moisturising baby lotion with organic shea butter and chamomile.",
@@ -47,14 +47,6 @@ const products = [
         category: "Baby Care"
     },
     {
-        p_name: "Ultra-Soft Cotton Newborn Diapers (48 Pcs)",
-        desc: "Breathable 12-hour leak-lock absorption diapers with wetness indicator for newborn comfort and dry skin.",
-        price: 699,
-        stock: 80,
-        img: ["/uploads/1748067559378.jpg"],
-        category: "Baby Care"
-    },
-    {
         p_name: "Complete 6-in-1 Baby Grooming Kit",
         desc: "Includes safety nail clippers, round-tip scissors, soft hair brush, nasal aspirator, and comb.",
         price: 499,
@@ -63,14 +55,14 @@ const products = [
         category: "Baby Care"
     },
 
-    // Toys
+    // 2. Toys & Learning
     {
         p_name: "Plush Musical Cuddle Teddy Bear",
         desc: "Ultra-soft plush teddy bear with gentle lullaby music and glowing night light to soothe babies to sleep.",
         price: 599,
         stock: 30,
         img: ["/uploads/1748067835310.jpg"],
-        category: "Toys"
+        category: "Toys & Learning"
     },
     {
         p_name: "Educational Wooden Stacking Rings",
@@ -78,7 +70,7 @@ const products = [
         price: 449,
         stock: 40,
         img: ["/uploads/1748067952449.jpg"],
-        category: "Toys"
+        category: "Toys & Learning"
     },
     {
         p_name: "Sensory Soft Building Blocks Set (10 Pcs)",
@@ -86,7 +78,7 @@ const products = [
         price: 649,
         stock: 25,
         img: ["/uploads/1748068190865.jpg"],
-        category: "Toys"
+        category: "Toys & Learning"
     },
     {
         p_name: "Baby Activity Kick & Play Piano Gym",
@@ -94,7 +86,7 @@ const products = [
         price: 1899,
         stock: 15,
         img: ["/uploads/1748068872075.jpg"],
-        category: "Toys"
+        category: "Toys & Learning"
     },
     {
         p_name: "Silicone Fruit Teether & Rattle Combo",
@@ -102,7 +94,7 @@ const products = [
         price: 299,
         stock: 70,
         img: ["/uploads/1748069446637.jpg"],
-        category: "Toys"
+        category: "Toys & Learning"
     },
     {
         p_name: "Wooden Shape Sorter Activity Cube",
@@ -110,10 +102,10 @@ const products = [
         price: 899,
         stock: 20,
         img: ["/uploads/1748069598276.jpg"],
-        category: "Toys"
+        category: "Toys & Learning"
     },
 
-    // Boys Fashion
+    // 3. Boys Fashion
     {
         p_name: "Newborn 100% Cotton Romper Set (Pack of 3)",
         desc: "Soft, breathable pure cotton full-sleeve snap rompers with cute prints for daily comfort and easy diaper changes.",
@@ -155,7 +147,7 @@ const products = [
         category: "Boys Fashion"
     },
 
-    // Girls Fashion
+    // 4. Girls Fashion
     {
         p_name: "Pastel Floral Princess Party Frock",
         desc: "Beautiful flared tulle frock with floral embroidery, soft cotton inner lining, and elegant satin waist bow.",
@@ -195,6 +187,118 @@ const products = [
         stock: 15,
         img: ["/uploads/1748960191383.webp"],
         category: "Girls Fashion"
+    },
+
+    // 5. Feeding & Nursing
+    {
+        p_name: "Anti-Colic Glass Feeding Bottle (240ml)",
+        desc: "BPA-free borosilicate glass feeding bottle with slow-flow silicone teat and anti-colic air vent valve.",
+        price: 599,
+        stock: 50,
+        img: ["/uploads/1748960459145.webp"],
+        category: "Feeding & Nursing"
+    },
+    {
+        p_name: "Waterproof Silicone Baby Bibs (Set of 2)",
+        desc: "Food-grade waterproof silicone bibs with wide crumb catcher pocket and adjustable neck snaps.",
+        price: 399,
+        stock: 65,
+        img: ["/uploads/1748960754817.webp"],
+        category: "Feeding & Nursing"
+    },
+    {
+        p_name: "Fast Electric Baby Bottle Warmer & Sterilizer",
+        desc: "Multifunctional double bottle warmer with fast steam heating, constant temperature holding, and defrost.",
+        price: 1599,
+        stock: 20,
+        img: ["/uploads/1748961086940.webp"],
+        category: "Feeding & Nursing"
+    },
+    {
+        p_name: "Weighted Straw Spill-Proof Sippy Cup (200ml)",
+        desc: "360-degree weighted straw sippy cup allowing babies to drink comfortably from any angle without spills.",
+        price: 349,
+        stock: 45,
+        img: ["/uploads/1748961338807.webp"],
+        category: "Feeding & Nursing"
+    },
+
+    // 6. Diapering & Hygiene
+    {
+        p_name: "Ultra-Soft Cotton Newborn Diapers (48 Pcs)",
+        desc: "Breathable 12-hour leak-lock absorption diapers with wetness indicator for newborn comfort and dry skin.",
+        price: 699,
+        stock: 80,
+        img: ["/uploads/1748067559378.jpg"],
+        category: "Diapering & Hygiene"
+    },
+    {
+        p_name: "Portable Felt Diaper Caddy Organizer",
+        desc: "Spacious multi-compartment nursery storage tote bag for diapers, wipes, bottles, and changing essentials.",
+        price: 799,
+        stock: 30,
+        img: ["/uploads/1748961558151.webp"],
+        category: "Diapering & Hygiene"
+    },
+    {
+        p_name: "Waterproof Foldable Baby Changing Mat",
+        desc: "Cushioned wipe-clean portable changing pad with headrest pillow, ideal for home and on-the-go travel.",
+        price: 499,
+        stock: 40,
+        img: ["/uploads/1748961890145.webp"],
+        category: "Diapering & Hygiene"
+    },
+
+    // 7. Bedding & Nursery
+    {
+        p_name: "Organic Cotton Muslin Baby Swaddle Blanket (Pack of 2)",
+        desc: "Breathable, lightweight 100% organic cotton muslin swaddles that get softer with every wash.",
+        price: 649,
+        stock: 45,
+        img: ["/uploads/1749059939386.webp"],
+        category: "Bedding & Nursery"
+    },
+    {
+        p_name: "Baby Bed with Mosquito Net & Pillow Set",
+        desc: "Foldable portable sleeping mattress with attached breathable zipper mosquito net and shaped infant pillow.",
+        price: 899,
+        stock: 25,
+        img: ["/uploads/1749060037530.webp"],
+        category: "Bedding & Nursery"
+    },
+    {
+        p_name: "Plush Fleece Baby Sleeping Bag / Wrap",
+        desc: "Ultra-cozy hooded swaddle wrap with velcro wings to keep newborn snug, warm, and secure.",
+        price: 699,
+        stock: 35,
+        img: ["/uploads/1749060154914.webp"],
+        category: "Bedding & Nursery"
+    },
+
+    // 8. Baby Gear & Travel
+    {
+        p_name: "Lightweight Compact Foldable Baby Stroller",
+        desc: "One-hand fold travel stroller with multi-position reclining seat, large canopy, and smooth suspension wheels.",
+        price: 4499,
+        stock: 12,
+        img: ["/uploads/1749060368797.webp"],
+        category: "Baby Gear & Travel"
+    },
+    {
+        p_name: "Ergonomic 3-in-1 Baby Wrap & Carrier",
+        desc: "Breathable mesh baby front carrier with lumbar support and adjustable padded shoulder straps.",
+        price: 1799,
+        stock: 22,
+        img: ["/uploads/1749060546212.webp"],
+        category: "Baby Gear & Travel"
+    },
+    {
+        p_name: "Infant-to-Toddler Rocker & Bouncer Chair",
+        desc: "Calming vibrations bouncer with removable toy bar, secure 3-point harness, and foldable kickstand.",
+        price: 2499,
+        stock: 15,
+        img: ["/uploads/1749060773795.webp"],
+        category: "Baby Gear & Travel"
     }
 ];
 
@@ -207,7 +311,7 @@ async function seed() {
         console.log("Cleared existing products");
         
         const inserted = await Product.insertMany(products);
-        console.log(`Successfully seeded ${inserted.length} products!`);
+        console.log(`Successfully seeded ${inserted.length} products across multiple categories!`);
         
         await mongoose.disconnect();
     } catch (err) {
