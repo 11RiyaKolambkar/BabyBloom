@@ -49,33 +49,35 @@ router.get('/getOne', auth, async(req, res) => {
 
 //Register a new User
 router.post('/register', async(req, res) => {
-    const { username, email, phone, password } = req.body;
+    let { username, email, phone, password } = req.body;
     try {
         if (!username ||
             !email ||
             !phone ||
             !password
         ) {
-            return res.status(404).send({
+            return res.status(400).send({
                 message: 'Send all required fields'
             });
         }
 
+        email = email.trim().toLowerCase();
+
         //try to find if the user email is already registered
         const user = await User.findOne({ email });
         if (user)
-            return res.status(404).json({ Error: 'Email already exists' })
+            return res.status(400).json({ Error: 'Email already exists' });
 
         //encrypt password
         const hashedPass = await bcrypt.hash(password, 10);
 
         //create new user 
         const newUser = new User({
-            username: username,
+            username: username.trim(),
             email: email,
             phone: phone,
             password: hashedPass
-        })
+        });
 
         //save new user
         await newUser.save();
@@ -88,7 +90,7 @@ router.post('/register', async(req, res) => {
                 email: newUser.email,
                 password: newUser.password
             }
-        }
+        };
 
         //create token with required parameters
         const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '24hr' });
@@ -108,13 +110,15 @@ router.post('/register', async(req, res) => {
 
 //user login handling
 router.post('/login', async(req, res) => {
-    const { email, password } = req.body;
+    let { email, password } = req.body;
     try {
         if (!email || !password) {
-            return res.status(404).send({
+            return res.status(400).send({
                 message: 'Send all required fields'
             });
         }
+
+        email = email.trim().toLowerCase();
 
         //check if user exists in database
         const userData = await User.findOne({ email });
@@ -126,7 +130,7 @@ router.post('/login', async(req, res) => {
 
         //if passwords do not match return error
         if (!isPass)
-            return res.status(404).json({ Error: 'Invalid credentials' });
+            return res.status(400).json({ Error: 'Invalid credentials' });
 
         //passwords match so create payload for JWT
         const payload = {
