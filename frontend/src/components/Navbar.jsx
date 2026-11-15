@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom';
 
-function Navbar({ login }) {
+function Navbar({ login, onLogout }) {
 
     //re-render component whenever login variable changes state 
     useEffect(() => { }, [login])
@@ -9,7 +9,7 @@ function Navbar({ login }) {
         <div>
             <nav className="navbar navbar-expand-lg bg-primary">
                 <div className="container-fluid">
-                    <Link className="navbar-brand" href="/">BabyBloom</Link>
+                    <Link className="navbar-brand" to="/">BabyBloom</Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
@@ -36,6 +36,9 @@ function Navbar({ login }) {
                                     </li>
                                     <li className="nav-item">
                                         <Link className="nav-link" to={"/account"}>Account</Link>
+                                    </li>
+                                    <li className="nav-item">
+                                        <button className="btn btn-outline-danger btn-sm ms-2 mt-1" onClick={onLogout}>Logout</button>
                                     </li>
                                 </>
                             )

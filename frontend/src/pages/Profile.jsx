@@ -61,6 +61,7 @@ function Profile({ refresh }) {
     //function to logout and refresh the navbar 
     function handleLogout() {
         localStorage.removeItem('userToken');
+        localStorage.removeItem('role');
         refresh();
         navigator('/');
     }

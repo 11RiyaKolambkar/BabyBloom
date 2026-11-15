@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-function Login({ refresh }) {
+function Login({ refresh, userLogged, onLogout }) {
     // Separate state for Login
     const [loginEmail, setLoginEmail] = useState('');
     const [loginPassword, setLoginPassword] = useState('');
@@ -98,6 +98,14 @@ function Login({ refresh }) {
 
     return (
         <div className="container mt-5 mb-5">
+            {userLogged && (
+                <div className="alert alert-warning mx-auto text-center shadow-sm mb-4" style={{ maxWidth: "480px" }}>
+                    <p className="mb-2">⚠️ You are currently logged into an account.</p>
+                    <button className="btn btn-sm btn-danger fw-bold" onClick={onLogout}>
+                        Click here to Log Out
+                    </button>
+                </div>
+            )}
             {activeTab === 'login' ? (
                 <div className="container p-5 bg-primary rounded shadow-sm" style={{ maxWidth: "480px" }}>
                     <h2 className="text-center fw-bold">Login</h2>

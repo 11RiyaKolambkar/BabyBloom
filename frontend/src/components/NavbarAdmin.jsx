@@ -1,13 +1,13 @@
-import React, { useEffect } from 'react'
+import React from 'react';
 import { Link } from 'react-router-dom';
 
-function Navbar() {
+function NavbarAdmin({ onLogout }) {
 
     return (
         <div>
             <nav className="navbar navbar-expand-lg bg-primary">
                 <div className="container-fluid">
-                    <Link className="navbar-brand" href="/">BabyBloom Admin</Link>
+                    <Link className="navbar-brand" to="/admin">BabyBloom Admin</Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
@@ -28,6 +28,9 @@ function Navbar() {
                             <li className="nav-item">
                                 <Link className="nav-link" to={"/admin/profile"}>Profile</Link>
                             </li>
+                            <li className="nav-item">
+                                <button className="btn btn-outline-danger btn-sm ms-2 mt-1" onClick={onLogout}>Logout</button>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -36,4 +39,4 @@ function Navbar() {
     )
 }
 
-export default Navbar
+export default NavbarAdmin

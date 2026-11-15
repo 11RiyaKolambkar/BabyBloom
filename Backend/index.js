@@ -27,6 +27,12 @@ app.use(cors());
 //Support for json format data
 app.use(express.json());
 
+//Request logger
+app.use((req, res, next) => {
+    console.log(`[${new Date().toLocaleTimeString()}] ${req.method} ${req.url}`, req.body || {});
+    next();
+});
+
 //Route to get static upload files
 app.use("/uploads", express.static("uploads/products"));
 

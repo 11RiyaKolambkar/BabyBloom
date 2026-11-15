@@ -62,11 +62,14 @@ router.post('/register', async(req, res) => {
         }
 
         email = email.trim().toLowerCase();
+        console.log(`[Register] Checking email: "${email}"`);
 
         //try to find if the user email is already registered
         const user = await User.findOne({ email });
-        if (user)
+        if (user) {
+            console.log(`[Register] Email already exists in database: "${email}" (User ID: ${user._id})`);
             return res.status(400).json({ Error: 'Email already exists' });
+        }
 
         //encrypt password
         const hashedPass = await bcrypt.hash(password, 10);

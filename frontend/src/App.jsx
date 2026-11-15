@@ -47,11 +47,18 @@ function App() {
       setUserLogged(true);
       if (localStorage.getItem('role') === 'admin') {
         setIsAdmin(true);
-        navigator('/admin');
       } else {
-        setIsAdmin(false)
+        setIsAdmin(false);
       }
     }
+  }
+
+  function handleLogout() {
+    localStorage.removeItem('userToken');
+    localStorage.removeItem('role');
+    setUserLogged(false);
+    setIsAdmin(false);
+    navigator('/login');
   }
 
   //checking user login on render
@@ -62,7 +69,11 @@ function App() {
   return (
     <>
       {/* render navbar according to logged user type */}
-      {!isAdmin ? <Navbar login={userLogged} /> : <NavbarAdmin />}
+      {!isAdmin ? (
+        <Navbar login={userLogged} onLogout={handleLogout} />
+      ) : (
+        <NavbarAdmin onLogout={handleLogout} />
+      )}
 
       <Routes>
         {/* user related pages routing */}
@@ -75,7 +86,7 @@ function App() {
         <Route path='/order/buynow/:productId' element={<Order />} />
         <Route path='/account' element={<Account refresh={checkUserLogin} />} />
         <Route path='/profile' element={<Profile refresh={checkUserLogin} />} />
-        <Route path='/login' element={<Login refresh={checkUserLogin} />} />
+        <Route path='/login' element={<Login refresh={checkUserLogin} userLogged={userLogged} onLogout={handleLogout} />} />
         <Route path='/products/:id' element={<ProductDetails />} />
         {/* admin related pages  */}
         <Route path='/admin' element={<Dashboard />} />
