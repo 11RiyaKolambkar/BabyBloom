@@ -65,8 +65,9 @@ router.get('/', auth, async(req, res) => {
         //find all cart items for the user id
         const cartItems = await Cart.find({ u_id: userId }).populate('p_id', 'p_name price img'); // Populate product details
 
-        // Transform the cartItems to include product details directly
-        const transformedCartItems = cartItems.map(item => {
+        // Filter valid items and transform to include product details directly
+        const validCartItems = cartItems.filter(item => item.p_id != null);
+        const transformedCartItems = validCartItems.map(item => {
             return {
                 _id: item._id, // Cart item ID
                 userId: item.u_id,
